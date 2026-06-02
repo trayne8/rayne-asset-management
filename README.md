@@ -1,31 +1,24 @@
 # Rayne Asset Management
 
-This repository contains the Rayne Asset Management dashboard and the original HTML dashboard asset.
+This repository contains a Python-based quantitative pairs trading project with a focus on S&P 500 analysis and historical spread backtesting.
 
-## Streamlit App
+## Project Contents
 
-The app will automatically load `CSV data files/MES_15min_Stitched_Jul2022_May2026.csv` as the default dataset when available.
+- `pairs_trading/pairs_backtest.py`: Main backtest script using Yahoo Finance data, train/test split, cointegration, regression diagnostics, and strategy performance.
+- `Rayne Hedge Fund.html`: Original HTML dashboard asset.
 
-To run the app locally:
+## Running locally
 
 ```bash
 cd '/Users/rayneperekekeme/Documents/Claude/Projects/Trading stratetgies Portfolio/Rayne Asset Management'
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
-streamlit run streamlit_app.py
+pip install -r pairs_trading_repo/requirements.txt
+python pairs_trading/pairs_backtest.py
 ```
-
-The app embeds `Rayne Hedge Fund.html` directly so the dashboard's HTML structure, styling, and charts are preserved.
-
-## Deploying to Streamlit Cloud
-
-1. Push this repository to GitHub.
-2. In Streamlit Cloud, create a new app from the repo.
-3. Select branch `main` and the file `streamlit_app.py`.
-4. Deploy.
 
 ## Notes
 
-- The HTML dashboard is preserved in `Rayne Hedge Fund.html`.
-- The Streamlit wrapper is intentionally minimal so the original HTML design remains intact.
+- This project no longer uses Streamlit.
+- The primary deliverable is the Python backtest and notebook workflow.
+- Use the notebook files in `pairs_trading_repo/` for exploratory analysis and reporting.

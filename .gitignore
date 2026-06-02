@@ -12,8 +12,8 @@ ENV/
 # macOS
 .DS_Store
 
-# Streamlit
-.streamlit/
-
 # Logs
 *.log
+
+# Ignore nested project repo directory
+pairs_trading_repo/
