@@ -4,6 +4,8 @@ This repository contains the Rayne Asset Management dashboard and the original H
 
 ## Streamlit App
 
+The app will automatically load `CSV data files/MES_15min_Stitched_Jul2022_May2026.csv` as the default dataset when available.
+
 To run the app locally:
 
 ```bash

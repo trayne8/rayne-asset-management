@@ -2230,6 +2230,8 @@
 const STORAGE_KEY = 'trading-strategies-portfolio-v1';
 const DATASETS_KEY = 'trading-strategies-datasets-v1';
 const ACTIVE_DS_KEY = 'trading-strategies-active-dataset';
+const DEFAULT_DS_DISABLED_KEY = 'trading-strategies-default-dataset-disabled';
+const DEFAULT_DS_ID = 'default-mes-15m';
 
 const SEED_STRATEGIES = [
   { id:'s1', name:'ES 5m Opening Range Breakout', instrument:'ES', timeframe:'5m', status:'Live',
@@ -2480,9 +2482,33 @@ function saveStrategies() {
 
 function loadDatasets() {
   try { const raw = localStorage.getItem(DATASETS_KEY); if (raw) return JSON.parse(raw); } catch (e) {}
-  return [];
+  const defaultDs = tryLoadDefaultDataset();
+  return defaultDs ? [defaultDs] : [];
 }
 function saveDatasets() { localStorage.setItem(DATASETS_KEY, JSON.stringify(datasets)); }
+
+function tryLoadDefaultDataset() {
+  if (typeof window === 'undefined' || !window.DEFAULT_DATASET) return null;
+  if (localStorage.getItem(DEFAULT_DS_DISABLED_KEY) === '1') return null;
+  try {
+    const def = window.DEFAULT_DATASET;
+    if (!def || !def.csv || !def.name) return null;
+    const bars = parseCSV(def.csv);
+    if (!bars.length) return null;
+    return {
+      id: def.id || DEFAULT_DS_ID,
+      name: def.name,
+      rows: bars.length,
+      firstTime: bars[0].t,
+      lastTime: bars[bars.length - 1].t,
+      addedAt: todayISO(),
+      csv: def.csv
+    };
+  } catch (e) {
+    console.warn('Default dataset failed to load:', e);
+    return null;
+  }
+}
 
 function todayISO() { return new Date().toISOString().slice(0, 10); }
 function fmtNum(n, d = 2) { return n == null || n === '' || isNaN(n) ? '—' : Number(n).toFixed(d); }
@@ -2646,6 +2672,7 @@ function deleteDataset(id) {
   const ds = datasets.find(d => d.id === id);
   if (!ds) return;
   if (!confirm(`Delete dataset "${ds.name}"? This cannot be undone.`)) return;
+  if (ds.id === DEFAULT_DS_ID) localStorage.setItem(DEFAULT_DS_DISABLED_KEY, '1');
   datasets = datasets.filter(d => d.id !== id);
   delete parsedCache[id];
   if (typeof clearIndicatorCacheFor === 'function') clearIndicatorCacheFor(id);

@@ -5,6 +5,7 @@ project can be deployed directly as a public Streamlit app.
 """
 
 from pathlib import Path
+import json
 import streamlit as st
 from streamlit.components.v1 import html
 
@@ -25,6 +26,18 @@ html_file = Path("Rayne Hedge Fund.html")
 
 if html_file.exists():
     dashboard_html = html_file.read_text(encoding="utf-8")
+    default_csv_path = Path("CSV data files/MES_15min_Stitched_Jul2022_May2026.csv")
+    if default_csv_path.exists():
+        default_csv = default_csv_path.read_text(encoding="utf-8")
+        default_payload = json.dumps({
+            "id": "default-mes-15m",
+            "name": "MES_15min_Stitched_Jul2022_May2026",
+            "csv": default_csv,
+        })
+        dashboard_html = dashboard_html.replace(
+            "</head>",
+            f'<script>window.DEFAULT_DATASET = {default_payload};</script></head>'
+        )
     html(dashboard_html, height=1200, scrolling=True)
     st.markdown("---")
     st.markdown(
