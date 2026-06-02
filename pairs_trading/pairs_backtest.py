@@ -36,6 +36,8 @@ def fetch_data(tickers, start=None, end=None):
     df = yf.download(tickers, start=start, end=end, progress=False)
     if isinstance(tickers, (list, tuple)):
         close = df["Close"].copy()
+        # preserve the requested ticker order, since yfinance may reorder columns
+        close = close.loc[:, tickers]
     else:
         close = df["Close"].to_frame()
     close = close.dropna()
@@ -247,8 +249,8 @@ def sensitivity_analysis(close, beta, positions, train_last_idx, cost_rates=(0.0
 
 
 def main():
-    # Example tickers: S&P500 vs NASDAQ
-    tickers = ['^GSPC', '^IXIC']
+    # Example tickers: S&P500 ETF (SPY) vs Nasdaq ETF (QQQ)
+    tickers = ['SPY', 'QQQ']
     start = '2018-01-01'
     end = datetime.today().strftime('%Y-%m-%d')
 
