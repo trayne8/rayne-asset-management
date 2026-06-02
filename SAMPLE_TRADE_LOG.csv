@@ -1,0 +1,49 @@
+Date,EntryPrice,ExitPrice,RiskAmount,RewardAmount,Outcome,RRatio,Strategy,Notes
+2026-05-18,4825.50,4835.75,100,150,Win,1.5,ES 5m ORB,Strong breakout confirmed
+2026-05-17,4820.00,4818.25,50,50,Loss,1.0,ES 5m ORB,Failed at OR resistance
+2026-05-16,4815.75,4815.75,75,0,Timeout,0.0,ES 5m ORB,Flat at session end
+2026-05-15,4822.00,4830.50,80,160,Win,2.0,ES 5m ORB,Strong continuation
+2026-05-14,4810.00,4815.00,100,200,Win,2.0,Order Block,OB revisit successful
+2026-05-13,4825.00,4820.00,60,60,Loss,1.0,ES 5m ORB,Stopped at structural support
+2026-05-12,4832.50,4838.00,70,140,Win,2.0,Order Block,Clean 1:2 winner
+2026-05-11,4828.00,4826.50,40,40,Loss,1.0,ES 5m ORB,Quick stop
+2026-05-10,4835.00,4850.00,100,300,Win,3.0,ES 5m ORB,Major breakout move
+2026-05-09,4820.00,4825.00,60,120,Win,2.0,Order Block,OB + momentum confluence
+2026-05-08,4815.00,4812.00,80,80,Loss,1.0,ES 5m ORB,Reversal at OR edge
+2026-05-07,4840.00,4850.00,75,150,Win,2.0,ES 5m ORB,Morning breakout
+2026-05-06,4838.00,4835.00,50,50,Loss,1.0,Order Block,Failed breaker block
+2026-05-05,4825.00,4825.50,90,0,Timeout,0.0,ES 5m ORB,Oscillation
+2026-05-04,4810.00,4820.00,100,200,Win,2.0,Order Block,Solid OB entry
+2026-05-03,4815.00,4812.00,70,70,Loss,1.0,ES 5m ORB,FOMC blackout miss
+2026-05-02,4830.00,4838.00,80,160,Win,2.0,ES 5m ORB,Strong trend day
+2026-05-01,4828.00,4832.00,60,120,Win,2.0,Order Block,Clean entry
+2026-04-30,4820.00,4818.00,100,100,Loss,1.0,ES 5m ORB,Failed breakout
+2026-04-29,4835.00,4840.00,50,100,Win,2.0,Order Block,OB + volume confluence
+2026-04-28,4825.00,4823.00,80,80,Loss,1.0,ES 5m ORB,No follow-through
+2026-04-27,4840.00,4850.00,100,300,Win,3.0,ES 5m ORB,Exceptional day
+2026-04-26,4815.00,4825.00,75,150,Win,2.0,Order Block,Volatility breakout
+2026-04-25,4820.00,4820.50,60,0,Timeout,0.0,ES 5m ORB,Range consolidation
+2026-04-24,4825.00,4822.00,90,90,Loss,1.0,ES 5m ORB,Profit-taking reversal
+2026-04-23,4835.00,4845.00,80,240,Win,3.0,Order Block,Extended OB run
+2026-04-22,4828.00,4833.00,70,140,Win,2.0,ES 5m ORB,Strong open
+2026-04-21,4820.00,4817.00,100,100,Loss,1.0,Order Block,Failed revisit
+2026-04-20,4815.00,4825.00,75,225,Win,3.0,ES 5m ORB,Gap fill + breakout
+2026-04-19,4830.00,4835.00,60,120,Win,2.0,Order Block,Clean liquidation OB
+2026-04-18,4825.00,4820.00,80,80,Loss,1.0,ES 5m ORB,Stop at opposite OR edge
+2026-04-17,4840.00,4855.00,100,300,Win,3.0,ES 5m ORB,Strong directional move
+2026-04-16,4832.00,4838.00,50,100,Win,2.0,Order Block,OB + ORB confluence
+2026-04-15,4820.00,4818.00,90,90,Loss,1.0,ES 5m ORB,Quick stop
+2026-04-14,4815.00,4830.00,70,210,Win,3.0,Order Block,Extended runner
+2026-04-13,4835.00,4840.00,100,200,Win,2.0,ES 5m ORB,Solid winner
+2026-04-12,4828.00,4825.00,60,60,Loss,1.0,ES 5m ORB,Failed at support
+2026-04-11,4825.00,4835.00,80,160,Win,2.0,Order Block,OB playbook
+2026-04-10,4840.00,4842.00,75,0,Timeout,0.0,ES 5m ORB,Breakeven close
+2026-04-09,4820.00,4815.00,100,100,Loss,1.0,ES 5m ORB,Reversal at OR high
+2026-04-08,4815.00,4825.00,70,140,Win,2.0,Order Block,Classic OB entry
+2026-04-07,4830,4835,60,120,Win,2.0,ES 5m ORB,Morning momentum
+2026-04-06,4825,4820,90,90,Loss,1.0,Order Block,Failed breaker
+2026-04-05,4835,4845,80,240,Win,3.0,ES 5m ORB,Extended run
+2026-04-04,4828,4833,50,100,Win,2.0,Order Block,Clean execution
+2026-04-03,4820,4817,100,100,Loss,1.0,ES 5m ORB,Quick stop
+2026-04-02,4815,4830,75,225,Win,3.0,Order Block,OB + momentum
+2026-04-01,4840,4850,100,300,Win,3.0,ES 5m ORB,Month-start strength
