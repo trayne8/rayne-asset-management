@@ -17,3 +17,6 @@ ENV/
 
 # Ignore nested project repo directory
 pairs_trading_repo/
+
+# Ignore generated backtest plots
+pairs_trading/plots/
