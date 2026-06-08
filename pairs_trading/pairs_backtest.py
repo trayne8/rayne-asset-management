@@ -130,8 +130,9 @@ def sharpe_ratio(returns, period_per_year=252):
 
 def max_drawdown(cumret):
     running_max = cumret.cummax()
-    drawdown = (cumret - running_max) / running_max
-    return drawdown.min()
+    drawdown = (cumret - running_max) / running_max.replace(0, np.nan)
+    min_dd = drawdown.min(skipna=True)
+    return float(min_dd) if np.isfinite(min_dd) else np.nan
 
 
 def backtrader_demo(df, signal_map, hedge_ratio):
@@ -249,8 +250,8 @@ def sensitivity_analysis(close, beta, positions, train_last_idx, cost_rates=(0.0
 
 
 def main():
-    # Example tickers: S&P500 ETF (SPY) vs Nasdaq ETF (QQQ)
-    tickers = ['SPY', 'QQQ']
+    # Example tickers: S&P500 index (^GSPC) vs Nasdaq ETF (QQQ)
+    tickers = ['^GSPC', 'QQQ']
     start = '2018-01-01'
     end = datetime.today().strftime('%Y-%m-%d')
 
